@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <a ui-sref="class.detail">
+        <button type="button" class="btn btn-primary pull-right">
+            <span class="glyphicon glyphicon-plus-sign"></span> Add Class
+        </button>
+    </a>
+    <div>
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Teacher</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Students</th>
+                <th width="1%"></th>
+                <th width="1%"></th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="classObj in classGridCtrl.classes">
+                    <td>{{classObj.name}}</td>
+                    <td>{{classObj.teacherName}}</td>
+                    <td>{{classObj.startDate}}</td>
+                    <td>{{classObj.endDate}}</td>
+                    <td>{{classObj.count}}</td>
+                    <td>
+                        <button class="btn btn-primary pull-right" ui-sref="class.detail({ id: classObj.classId})">
+                            <span class="glyphicon glyphicon-pencil"></span></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger pull-right" ng-click="classGridCtrl.deleteClass(classObj)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                </tr>
+            </tbody>
+        </table>
+        </table>
+    </div>
+</div>

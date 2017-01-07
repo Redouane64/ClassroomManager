@@ -1,0 +1,59 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">{{classDetailCtrl.classId ? 'Edit' : 'Add'}} Class</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1" ng-model="classDetailCtrl.currentClass.name">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Teacher</label>
+                    <select class="form-control"
+                            ng-model="classDetailCtrl.currentClass.teacherId"
+                            ng-options="teacher.teacherId as teacher.name for teacher in classDetailCtrl.teachers">
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Start Date</label>
+                    <input type="text" class="form-control" placeholder="Start Date" aria-describedby="basic-addon1" ng-model="classDetailCtrl.currentClass.startDate">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>End Date</label>
+                    <input type="text" class="form-control" placeholder="End Date" aria-describedby="basic-addon1" ng-model="classDetailCtrl.currentClass.endDate">
+                </div>
+                <br>
+                <button class="btn btn-primary pull-right" ng-click="classDetailCtrl.saveClass()">
+                    <span class="glyphicon glyphicon-check"></span> Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">Students</div>
+    <div class="panel-body">
+        <div>
+            <table class="table">
+                <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Telephone</th>
+                    <th>Classes</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat ="student in classDetailCtrl.currentClass.students">
+                        <td>{{student.name}}</td>
+                        <td>{{student.emailAddress}}</td>
+                        <td>{{student.telephone}}</td>
+                        <td>{{student.classes}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
