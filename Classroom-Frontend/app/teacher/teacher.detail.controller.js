@@ -31,8 +31,9 @@
                 teacherFactory
                     .getById($stateParams.id)
                     .then(function(response) {
-                        vm.currentTeacher = response.data
+                        vm.currentTeacher = response.data;
                     })
+                    
             }
 
             //get ALL - STUDENTS

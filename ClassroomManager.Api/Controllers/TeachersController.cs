@@ -81,7 +81,7 @@ namespace ClassroomManager.Api.Controllers
 
             dbTeacher.Name = teacher.Name;
             dbTeacher.EmailAddress = teacher.EmailAddress;
-            dbTeacher.StartDate = teacher.StartDate;
+            dbTeacher.StartDate = dbTeacher.StartDate;
             dbTeacher.EndDate = teacher.EndDate;
             dbTeacher.Telephone = teacher.Telephone;
 
@@ -114,6 +114,8 @@ namespace ClassroomManager.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            teacher.StartDate = DateTime.Now;
 
             db.Teachers.Add(teacher);
             db.SaveChanges();

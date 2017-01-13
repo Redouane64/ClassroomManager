@@ -30,11 +30,11 @@
         }
 
         function getById(id) {
-            return $http.put('http://localhost:50180/api/teachers/' + id);
+            return $http.get('http://localhost:50180/api/teachers/' + id);
         }
 
         function update(id, teacher) {
-            return http.put('http://localhost:50180/api/teachers/' + id, teacher);
+            return $http.put('http://localhost:50180/api/teachers/' + id, teacher);
         }
 
         function remove(id) {
